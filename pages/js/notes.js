@@ -39,31 +39,46 @@ function attachListeners() {
         msg.lang = 'fr-FR'
         window.speechSynthesis.speak(msg);
     })
+
     
     let painting = false;
     
-    const penPoints = [];
+    const penPoints = [[]];
     let penColor = 'black';
     let penWidth = 0.5;
     
-    const highlighterPoints = [];
+    const highlighterPoints = [[]];
     let highlighterColor = 'yellow';
     let highlighterWidth = 2;
 
+    const eraserWidth = 5; 
+    
     const tools = ['p', 'e', 'h']
-
+    
     let tool = tools[0];
+    tool = tools[1];
+    tool = tools[2];
+    
+    const penBtn = document.querySelector('.p');
+    const eraserBtn = document.querySelector('.e');
+    const highlighterBtn = document.querySelector('.h');
 
+    penBtn.addEventListener('click', () => {tool = tools[0];})
+    eraserBtn.addEventListener('click', () => {tool = tools[1];})
+    highlighterBtn.addEventListener('click', () => {tool = tools[2];})
+    
     const useTools = (details) => {
         switch (tool) {
             case 'p':
                 penDraw(details, penWidth, penColor);
                 break;
+
             case 'e':
-                penColor = 'white';
+                    
                 break;
+
             case 'h':
-                penColor = 'yellow';
+                highlightDraw(details, highlighterWidth, highlighterColor);
                 break;
         }
     }
@@ -75,11 +90,51 @@ function attachListeners() {
         draw(penPoints, width, color);
     }
 
+    const highlightDraw = (details, width, color) => {
+        const currentStroke = highlighterPoints[highlighterPoints.length - 1];
+        let {x, y} = getMousePos(canvas, details);
+        currentStroke.push({x: x, y: y});
+        draw(highlighterPoints, width, color, 0.01);
+    }
+
+    const eraserDraw = (details) => {
+        // go through all points and if they are within the eraser's width, remove them
+        let {x, y} = getMousePos(canvas, details);
+        penPoints.forEach(strokes => {
+            strokes.forEach((point, index) => {
+                if (Math.abs(point.x - x) < eraserWidth && Math.abs(point.y - y) < eraserWidth) {
+                    strokes.splice(index, 1);
+                }
+            })
+        })
+        highlighterPoints.forEach(strokes => {
+            strokes.forEach((point, index) => {
+                if (Math.abs(point.x - x) < eraserWidth && Math.abs(point.y - y) < eraserWidth) {
+                    strokes.splice(index, 1);
+                }
+            })
+        })
+    }
+
+    const pushStroke = () => {
+        switch (tool) {
+            case 'p':
+                penPoints.push([]);
+                break;
+
+            case 'e':
+                    
+                break;
+
+            case 'h':
+                highlighterPoints.push([]);
+                break;
+        }
+    }
+
     // draw on mousedown
     note.addEventListener('mousedown', (event) => {
-        // console.log('test')
-        painting = true;
-        penPoints.push([])
+        painting = true;pushStroke();
     });
     note.addEventListener('mouseup', (event) => {
         painting = false;
@@ -91,14 +146,11 @@ function attachListeners() {
     })
 
     note.addEventListener('touchstart', (event) => {
-        // console.log('test')
-        painting = true;
-        penPoints.push([])
+        painting = true;pushStroke();
     });
     note.addEventListener('touchend', (event) => {
         painting = false;
     })
-
     note.addEventListener('touchmove', (event) => {
         if (!painting) {return}
         event.preventDefault();
@@ -134,7 +186,7 @@ function attachListeners() {
 }
 
 
-const draw = (points, width, color) => {
+const draw = (points, width, color, transparency = 1) => {
     // console.log('drawing')
     points.forEach(strokes => {
         ctx.beginPath();
@@ -147,6 +199,7 @@ const draw = (points, width, color) => {
         })
         ctx.strokeStyle = color;
         ctx.lineWidth = width;
+        ctx.globalAlpha = transparency;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
         ctx.shadowBlur = 0;
