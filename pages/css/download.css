@@ -28,12 +28,15 @@
     width: 80%; /* Adjust as needed */
     margin: 0 auto;
     margin-top: 50px; /* Adjust margin-top for spacing */
+    text-decoration: none; 
   }
   
   .box {
+    
     width: calc(30% - 10px); /* Adjust width and spacing as needed */
     height: 500px; /* Adjust height as needed */
     background-color: rgba(150, 150, 150, 0.5); /* Adjust transparency and color */
+    text-decoration: none;
   }
 
   .logo{
@@ -41,4 +44,27 @@
     height: calc(40%); /* Adjust height as needed */
     padding-left: calc(25%);
     padding-top: calc(10%);
+  }
+
+
+  .box button {
+    color: white;
+    font-size: 26px; /* Adjust font size */
+    font-family: Arial, sans-serif; /* Change font family */
+    background-color: #696969;
+    border: 1px solid #696969;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+    margin-left: 10%;
+    text-decoration: none;
+  }
+
+  .box a {
+    text-decoration: none; /* Remove underline */
   }
