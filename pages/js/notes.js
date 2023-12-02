@@ -90,7 +90,7 @@ function saveRecording() {
     })
 
     // tts event listener
-    const mic = document.querySelector('.mic-btn')
+    const mic = document.querySelector('.speaker-btn')
     mic.addEventListener('click', (event) => {
         var msg = new SpeechSynthesisUtterance();
         msg.text = document.querySelector('.notes textarea').value;
