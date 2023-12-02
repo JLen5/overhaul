@@ -1,0 +1,66 @@
+.transparent-square {
+    width: 800px;
+    height: 550px;
+    background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
+    border-radius: 10px; /* Rounded edges */
+  }
+  .top {
+    display: flex;
+    font-size: 64px;
+    font-family: 'Roboto', sans-serif;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.statement {
+  font-size: 40px;
+  font-family: 'normal';
+  font-weight: lighter;
+  color: rgb(75, 75, 75);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%; /* Set your desired width */
+  padding-top: 30px; /* Adjust the value to shift the text downwards */
+}
+
+.growth-statement {
+  font-size: 30px;
+  font-family: 'normal';
+  font-weight: lighter;
+  color: rgb(75, 75, 75);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 90%; /* Set your desired width */
+  padding-top: 30px; /* Adjust the value to shift the text downwards */
+  padding-left: 20px;
+}
+
+.steph {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: calc(100vh - 128px);
+}
+
+.growth {
+  position: absolute;
+  bottom: -500px;
+  left: 40px;
+  height: calc(100vh - 400px);
+}
+
+.growth-square {
+  width: 600px;
+  height: 480px;
+  background-color: rgba(225, 225, 225, 0.7); /* Using rgba with alpha value for transparency */
+  border-radius: 10px; /* Rounded edges */
+  position: absolute;
+  top: 105%; /* Adjust top or bottom based on your layout */
+  right: 2%; /* Positioning the square on the right side */
+}
+
+.main{
+  height: 170vh;
+}
