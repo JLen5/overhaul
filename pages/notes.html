@@ -75,6 +75,14 @@
             <div class="files">
 
             </div>
+            <div class = 'recording'>
+              <button id="startRecord">Start Recording</button>
+              <button id="stopRecord" disabled>Stop Recording</button>
+              <button id="saveRecord" disabled>Save Recording</button>
+              <div id="recordedAudio"></div>
+              <p>Recording status: <span id="status">Idle</span></p>
+              <audio controls id="audioPlayback"></audio>
+            </div>
         </div>
         <div class="notes">
             <textarea name="writing" cols="30" rows="10" class="writing"></textarea>
@@ -83,4 +91,5 @@
     </div>
   </body>
   <script type = 'module' src="./js/notes.js"></script>
+  <script src="recorder/recorder.js"></script>
 </html>
