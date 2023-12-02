@@ -1,0 +1,113 @@
+.login_form{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: inherit;
+}
+
+.login-box {
+    /* -webkit-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75); */
+    box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.2);
+    width: 20em;
+    height: 27em;
+    margin: 5em auto;
+    border-radius: 0.7em;
+}
+
+.login-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.7em;
+    padding-bottom: 0.5em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.login-form-div {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button:hover {
+    opacity: 80%;
+}
+
+.submit-button {
+    background-color: #82C3FF;
+    transition: opacity 0.3s;
+}
+
+input {
+    position: inherit;
+    padding: 0.5em;
+    margin: 1em;
+    /* width: 18em; */
+    width:100%;
+    /* height: 2em; */
+    border-radius: 0.4em;
+}
+
+
+.icons {
+    width: 2em;
+    height: 2em;
+    margin: 1em
+}
+
+.alternate-login {
+    display: flex;
+    justify-content: center;
+}
+
+h2 { 
+    width: 90%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.001em; 
+    margin: 2em 0 1em; 
+    font-size: 0.8em;
+    
+} 
+h2 span { 
+    background:#fff; 
+    padding:0 10px; 
+}
+
+.horizontal-line {
+    display: flex;
+    justify-content: center;
+}
+
+.alternative-button:hover {
+    opacity: 80%;
+}
+
+.alternative-button {
+    transition: opacity 0.3s;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.forgot-password {
+    /* color: #0000EE; */
+    margin-top: 0.3em;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.no-account {
+    margin-top: 0.7em;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
