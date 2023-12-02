@@ -1,22 +1,8 @@
-import firebaseApp from "./firebase.js";
-import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
-
-const firebaseAuth = getAuth(firebaseApp)
-document.addEventListener("DOMContentLoaded", attachListeners);
-document.addEventListener("DOMContentLoaded", checkPage);
 // test
-function attachListeners() {
-    document.querySelector('.login_form')?.addEventListener('submit', login);
-    let logoutButton = document.querySelector('.logout');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', logout);
-    }
+import System from '../firebase/system.js';
 
-    // let addButton = document.querySelector('.add_file');
-    // if (addButton) {
-    //     addButton.addEventListener('click', addFile);
-    // }
-}
+const system = new System();
+
 
 function login(event) {
     event.preventDefault();
@@ -27,32 +13,10 @@ function login(event) {
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
 
-    signInWithEmailAndPassword(firebaseAuth, username, password)
-    .then((userCredential) => {
-        const user = userCredential.user
-        console.log('success')
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('invalid credentials')
-    })
+    system.signIn(username, password);
 
     //window.location = 'notes.html';
 }
 
-function logout(event) {
-    event.preventDefault();
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
-    window.location.href = 'login.html';
-}
-
-function checkPage() {
-    let username = localStorage.getItem('username');
-    if (window.location.href.includes('login.html') && username)
-        window.location = 'notes.html';
-    if (window.location.href.includes('notes.html') && !username)
-        window.location = 'login.html';
-}
+document.querySelector('.login_form').addEventListener('submit', login);
 
