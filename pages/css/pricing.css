@@ -1,0 +1,48 @@
+.title {
+    font-size: 64px;
+    font-family: 'Roboto';
+    font-family: Impact, Charcoal, sans-serif;
+    margin-left: 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.title > .title {
+    font-size: 64px;
+    font-family: 'Roboto';
+    font-family: Impact, Charcoal, sans-serif;
+    margin-left: 20px;
+}
+
+.title > img {
+    margin: -12px 0;
+}
+
+.semi-transparent-square {
+    width: 950px;
+    height: 500px;
+    background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
+  }
+
+  .white-square {
+    width: 400px;
+    height: 350px;
+    background-color: #fff; /* White square background color */
+    position: absolute; /* Absolute positioning */
+  }
+  
+  /* Positioning for the first white square */
+  .white-square:first-child {
+    top: 300px; /* Adjust top position as needed */
+    left: 50px; /* Adjust left position as needed */
+  }
+  
+  /* Positioning for the second white square */
+  .white-square:nth-child(2) {
+    top: 300px; /* Adjust top position as needed */
+    left: 500px; /* Adjust left position as needed */
+  }
