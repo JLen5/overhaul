@@ -40,33 +40,100 @@ function attachListeners() {
         msg.lang = 'en-US'
         window.speechSynthesis.speak(msg);
     })
+
     
     let painting = false;
     
-    const penPoints = [];
+    const penPoints = [[]];
     let penColor = 'black';
     let penWidth = 0.5;
     
-    const highlighterPoints = [];
+    const highlighterPoints = [[]];
     let highlighterColor = 'yellow';
     let highlighterWidth = 2;
 
+    const eraserWidth = 5; 
+    
     const tools = ['p', 'e', 'h']
-
+    
     let tool = tools[0];
+    
+    const penBtn = document.querySelector('.p');
+    const eraserBtn = document.querySelector('.e');
+    const highlighterBtn = document.querySelector('.h');
 
+    penBtn.addEventListener('click', () => {tool = tools[0];})
+    eraserBtn.addEventListener('click', () => {tool = tools[1];})
+    highlighterBtn.addEventListener('click', () => {tool = tools[2];})
+    
     const useTools = (details) => {
         switch (tool) {
             case 'p':
                 penDraw(details, penWidth, penColor);
                 break;
+
             case 'e':
-                penColor = 'white';
+                eraserDraw(details);
                 break;
+
             case 'h':
-                penColor = 'yellow';
+                highlightDraw(details, highlighterWidth, highlighterColor);
                 break;
         }
+    }
+
+    const pushStroke = () => {
+        switch (tool) {
+            case 'p':
+                penPoints.push([]);
+                break;
+
+            case 'h':
+                highlighterPoints.push([]);
+                break;
+        }
+    }
+
+    const hoverTools = (details) => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.globalAlpha = 1;
+        const {x, y} = getMousePos(canvas, details);
+        switch (tool) {
+            case 'p':
+                // black dot
+                ctx.arc(x, y, penWidth, 0, 2 * Math.PI);
+                ctx.fillStyle = penColor;
+                ctx.strokeStyle = penColor;
+                ctx.lineWidth = penWidth;
+                ctx.fill();
+
+                break;
+
+            case 'e':
+                // eraser
+                ctx.arc(x, y, eraserWidth, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.strokeStyle = 'black';
+                ctx.lineWidth = 0.1;
+                ctx.globalAlpha = 1;
+                ctx.fill();
+                break;
+
+            case 'h':
+                // yellow rectangle
+                ctx.rect(x - highlighterWidth/2, y - highlighterWidth/2, highlighterWidth, highlighterWidth);
+                // no black border
+                ctx.strokeStyle = highlighterColor;
+                ctx.fillStyle = highlighterColor;
+                ctx.fill();
+                break;
+        }
+        ctx.stroke();
+
+        // draw all strokes
+        draw(penPoints, penWidth, penColor);
+        draw(highlighterPoints, highlighterWidth, highlighterColor, 0.5);
     }
 
     const penDraw = (details, width, color) => {
@@ -76,31 +143,54 @@ function attachListeners() {
         draw(penPoints, width, color);
     }
 
+    const highlightDraw = (details, width, color) => {
+        const currentStroke = highlighterPoints[highlighterPoints.length - 1];
+        let {x, y} = getMousePos(canvas, details);
+        currentStroke.push({x: x, y: y});
+        draw(highlighterPoints, width, color, 0.01);
+    }
+
+    const eraserDraw = (details) => {
+        // go through all points and if they are within the eraser's width, remove them
+        let {x, y} = getMousePos(canvas, details);
+        // console.log(x, y);
+        penPoints.forEach(strokes => {
+            strokes.forEach((point, index) => {
+                if (Math.abs(point.x - x) < eraserWidth && Math.abs(point.y - y) < eraserWidth) {
+                    strokes.splice(index, 1);
+                }
+            })
+        })
+        highlighterPoints.forEach(strokes => {
+            strokes.forEach((point, index) => {
+                if (Math.abs(point.x - x) < eraserWidth && Math.abs(point.y - y) < eraserWidth) {
+                    strokes.splice(index, 1);
+                }
+            })
+        })
+    }
     // draw on mousedown
     note.addEventListener('mousedown', (event) => {
-        // console.log('test')
-        painting = true;
-        penPoints.push([])
+        painting = true;pushStroke();
     });
     note.addEventListener('mouseup', (event) => {
         painting = false;
     })
     note.addEventListener('mousemove', (event) => {
+        hoverTools(event);
         if (!painting) {return}
         event.preventDefault();
         useTools(event);
     })
 
     note.addEventListener('touchstart', (event) => {
-        // console.log('test')
-        painting = true;
-        penPoints.push([])
+        painting = true;pushStroke();
     });
     note.addEventListener('touchend', (event) => {
         painting = false;
     })
-
     note.addEventListener('touchmove', (event) => {
+        hoverTools(event.targetTouches[0]);
         if (!painting) {return}
         event.preventDefault();
         useTools(event.targetTouches[0]);
@@ -135,7 +225,7 @@ function attachListeners() {
 }
 
 
-const draw = (points, width, color) => {
+const draw = (points, width, color, transparency = 1) => {
     // console.log('drawing')
     points.forEach(strokes => {
         ctx.beginPath();
@@ -148,6 +238,7 @@ const draw = (points, width, color) => {
         })
         ctx.strokeStyle = color;
         ctx.lineWidth = width;
+        ctx.globalAlpha = transparency;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
         ctx.shadowBlur = 0;
