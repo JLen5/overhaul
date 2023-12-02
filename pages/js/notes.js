@@ -32,7 +32,7 @@ function attachListeners() {
     })
 
     // tts event listener
-    const mic = document.querySelector('.mic-btn')
+    const mic = document.querySelector('.speaker-btn')
     mic.addEventListener('click', (event) => {
         var msg = new SpeechSynthesisUtterance();
         msg.text = document.querySelector('.notes textarea').value;
@@ -42,6 +42,8 @@ function attachListeners() {
     })
 
     
+    let drawing = false;
+
     let painting = false;
     
     const penPoints = [[]];
@@ -58,31 +60,36 @@ function attachListeners() {
     
     let tool = tools[0];
     
-    const penBtn = document.querySelector('.p');
-    const eraserBtn = document.querySelector('.e');
-    const highlighterBtn = document.querySelector('.h');
+    const cursorBtn = document.querySelector('.cursor-btn');
+    const penBtn = document.querySelector('.pen-btn');
+    const eraserBtn = document.querySelector('.eraser-btn');
+    const highlighterBtn = document.querySelector('.highlighter-btn');
 
     penBtn.addEventListener('click', () => {tool = tools[0];})
     eraserBtn.addEventListener('click', () => {tool = tools[1];})
     highlighterBtn.addEventListener('click', () => {tool = tools[2];})
     
+    cursorBtn.addEventListener('click', () => {drawing = !drawing;})
+
     const useTools = (details) => {
+        if(!drawing) {return}
         switch (tool) {
             case 'p':
                 penDraw(details, penWidth, penColor);
                 break;
-
-            case 'e':
-                eraserDraw(details);
-                break;
-
-            case 'h':
-                highlightDraw(details, highlighterWidth, highlighterColor);
-                break;
-        }
-    }
-
+                
+                case 'e':
+                    eraserDraw(details);
+                    break;
+                    
+                    case 'h':
+                        highlightDraw(details, highlighterWidth, highlighterColor);
+                        break;
+                    }
+                }
+                
     const pushStroke = () => {
+        if(!drawing) {return}
         switch (tool) {
             case 'p':
                 penPoints.push([]);
@@ -95,6 +102,7 @@ function attachListeners() {
     }
 
     const hoverTools = (details) => {
+        if(!drawing) {return}
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
         ctx.globalAlpha = 1;
@@ -179,6 +187,7 @@ function attachListeners() {
     note.addEventListener('mousemove', (event) => {
         hoverTools(event);
         if (!painting) {return}
+        if(!drawing) {return}
         event.preventDefault();
         useTools(event);
     })
@@ -192,6 +201,7 @@ function attachListeners() {
     note.addEventListener('touchmove', (event) => {
         hoverTools(event.targetTouches[0]);
         if (!painting) {return}
+        if(!drawing) {return}
         event.preventDefault();
         useTools(event.targetTouches[0]);
     })
