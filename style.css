@@ -132,7 +132,7 @@ body {
     color: grey;
 }
 
-.login_form {
+/* .login_form {
     margin: 64px auto;
     width: 50vh;
     max-width: 600px;
@@ -148,7 +148,7 @@ body {
     text-align: center;
     font-size: 24px;
     cursor: pointer;
-}
+} */
 
 .notes_main {
     display: flex;
