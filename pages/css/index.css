@@ -6,6 +6,11 @@ body {
     --btn-secondary: transparent;
 }
 
+
+.main {
+    height: 200vh;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -37,6 +42,7 @@ body {
 }
 
 .head {
+    position: relative;
     margin: 128px 0 0 48px;
     width: calc(100% - 648px);
     display: flex;
@@ -101,7 +107,7 @@ body {
 }
 
 .splash {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
     height: calc(100vh - 128px);
@@ -109,16 +115,20 @@ body {
 
 .phone {
     z-index: 10;
-    position: fixed;
+    position: absolute;
     bottom: 48px;
     right: 124px;
     height: calc(90vh - 128px);
+    /*display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: -12px 0;*/
 }
 
 .computer {
     z-index: 100;
-    position: fixed;
-    bottom: 48px;
+    position: absolute;
+    bottom: -400px;
     right: 124px;
     height: calc(90vh - 128px);
 }

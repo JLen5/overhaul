@@ -6,6 +6,10 @@ body {
     --btn-secondary: transparent;
 }
 
+.main {
+    height: 200vh;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -110,6 +114,14 @@ body {
 .phone {
     z-index: 10;
     position: fixed;
+    bottom: 48px;
+    right: 124px;
+    height: calc(90vh - 128px);
+}
+
+
+.computer {
+    z-index: 10;
     bottom: 48px;
     right: 124px;
     height: calc(90vh - 128px);
