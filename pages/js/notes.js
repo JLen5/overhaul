@@ -56,8 +56,6 @@ function attachListeners() {
     const tools = ['p', 'e', 'h']
     
     let tool = tools[0];
-    tool = tools[1];
-    tool = tools[2];
     
     const penBtn = document.querySelector('.p');
     const eraserBtn = document.querySelector('.e');
@@ -74,13 +72,67 @@ function attachListeners() {
                 break;
 
             case 'e':
-                    
+                eraserDraw(details);
                 break;
 
             case 'h':
                 highlightDraw(details, highlighterWidth, highlighterColor);
                 break;
         }
+    }
+
+    const pushStroke = () => {
+        switch (tool) {
+            case 'p':
+                penPoints.push([]);
+                break;
+
+            case 'h':
+                highlighterPoints.push([]);
+                break;
+        }
+    }
+
+    const hoverTools = (details) => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.globalAlpha = 1;
+        const {x, y} = getMousePos(canvas, details);
+        switch (tool) {
+            case 'p':
+                // black dot
+                ctx.arc(x, y, penWidth, 0, 2 * Math.PI);
+                ctx.fillStyle = penColor;
+                ctx.strokeStyle = penColor;
+                ctx.lineWidth = penWidth;
+                ctx.fill();
+
+                break;
+
+            case 'e':
+                // eraser
+                ctx.arc(x, y, eraserWidth, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.strokeStyle = 'black';
+                ctx.lineWidth = 0.1;
+                ctx.globalAlpha = 1;
+                ctx.fill();
+                break;
+
+            case 'h':
+                // yellow rectangle
+                ctx.rect(x - highlighterWidth/2, y - highlighterWidth/2, highlighterWidth, highlighterWidth);
+                // no black border
+                ctx.strokeStyle = highlighterColor;
+                ctx.fillStyle = highlighterColor;
+                ctx.fill();
+                break;
+        }
+        ctx.stroke();
+
+        // draw all strokes
+        draw(penPoints, penWidth, penColor);
+        draw(highlighterPoints, highlighterWidth, highlighterColor, 0.5);
     }
 
     const penDraw = (details, width, color) => {
@@ -100,6 +152,7 @@ function attachListeners() {
     const eraserDraw = (details) => {
         // go through all points and if they are within the eraser's width, remove them
         let {x, y} = getMousePos(canvas, details);
+        // console.log(x, y);
         penPoints.forEach(strokes => {
             strokes.forEach((point, index) => {
                 if (Math.abs(point.x - x) < eraserWidth && Math.abs(point.y - y) < eraserWidth) {
@@ -115,23 +168,6 @@ function attachListeners() {
             })
         })
     }
-
-    const pushStroke = () => {
-        switch (tool) {
-            case 'p':
-                penPoints.push([]);
-                break;
-
-            case 'e':
-                    
-                break;
-
-            case 'h':
-                highlighterPoints.push([]);
-                break;
-        }
-    }
-
     // draw on mousedown
     note.addEventListener('mousedown', (event) => {
         painting = true;pushStroke();
@@ -140,6 +176,7 @@ function attachListeners() {
         painting = false;
     })
     note.addEventListener('mousemove', (event) => {
+        hoverTools(event);
         if (!painting) {return}
         event.preventDefault();
         useTools(event);
@@ -152,6 +189,7 @@ function attachListeners() {
         painting = false;
     })
     note.addEventListener('touchmove', (event) => {
+        hoverTools(event.targetTouches[0]);
         if (!painting) {return}
         event.preventDefault();
         useTools(event.targetTouches[0]);
