@@ -1,3 +1,7 @@
+* {
+    font-family: 'Roboto', 'sans-seriff';
+}
+
 .register_form{
     position: relative;
     display: flex;

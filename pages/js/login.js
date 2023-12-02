@@ -3,6 +3,9 @@ import System from '../firebase/system.js';
 
 const system = new System();
 
+document.querySelector('#no-account').addEventListener('click', (event) => {
+    window.location = 'register.html'
+})
 
 function login(event) {
     event.preventDefault();
