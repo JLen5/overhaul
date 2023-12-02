@@ -50,7 +50,7 @@ class System {
                         id: user.uid,
                         notes: [
                             {
-                                id: nanoid(),
+                                id: nanoid(8),
                                 title: 'My First Note',
                                 content: 'This is my first note'
                             }
@@ -82,10 +82,23 @@ class System {
         })
     }
 
-    async register(email, password){
+    async register(email, password, username){
         await createUserWithEmailAndPassword(this.auth, email, password)
         .then ((userCredential) => {
             let user = userCredential.user;
+
+            this.setData(ref(this.db, 'users/' + user.uid), {
+                name: username,
+                id: user.uid,
+                notes: [
+                    {
+                        id: nanoid(8),
+                        title: 'My First Note',
+                        content: 'This is my first note'
+                    }
+                ]
+            
+            })
         })
         .catch((error) => {
             let errorCode = error.code;
@@ -99,8 +112,9 @@ class System {
         await set(ref, data);
     }
 
-    async getData(ref, data){
-        return await get(ref, data);
+    async getData(ref){
+        // console.log(await get(ref))
+        return await get(ref);
     }
 
     // sign the user out

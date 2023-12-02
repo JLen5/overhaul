@@ -40,6 +40,7 @@
 .submit-button {
     background-color: #82C3FF;
     transition: opacity 0.3s;
+    cursor: pointer;
 }
 
 input {
@@ -52,11 +53,16 @@ input {
     border-radius: 0.4em;
 }
 
+.icons:hover {
+    opacity: 80%;
+}
 
 .icons {
     width: 2em;
     height: 2em;
-    margin: 1em
+    margin: 1em;
+    transition: opacity 0.3s;
+    cursor: pointer;
 }
 
 .alternate-login {
@@ -71,7 +77,7 @@ h2 {
     line-height: 0.001em; 
     margin: 2em 0 1em; 
     font-size: 0.8em;
-    
+
 } 
 h2 span { 
     background:#fff; 
@@ -95,6 +101,7 @@ h2 span {
     padding:0;
     cursor: pointer;
     width: fit-content;
+    transition: opacity 0.3s;
 }
 
 .forgot-password {
