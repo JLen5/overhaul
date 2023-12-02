@@ -43,9 +43,10 @@ function saveRecording() {
   const audioBlob = new Blob(recordedChunks, { type: 'audio/wav' });
   system.store(audioBlob, 0)
   console.log("passed")
-  const audioUrl = URL.createObjectURL(audioBlob);
+  /*const audioUrl = URL.createObjectURL(audioBlob);
   const downloadLink = document.createElement('a');
   downloadLink.href = audioUrl;
   downloadLink.download = 'recorded_audio.wav';
   downloadLink.click();
+  **/
 }
