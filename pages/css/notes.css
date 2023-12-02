@@ -4,6 +4,7 @@ body {
     --link-color: #505F98;
     --btn-primary-dark: #111b47;
     --btn-secondary: transparent;
+    margin: 0;
 }
 
 .navbar {
