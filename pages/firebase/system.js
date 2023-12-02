@@ -75,6 +75,8 @@ class System {
         })
         
         .catch((error) => {
+            let invalidLoginDiv = document.querySelector('.invalid-login')
+            invalidLoginDiv.innerHTML = 'Incorrect email or password.'
             let errorCode = error.code;
             let errorMessage = error.message;
         
@@ -104,7 +106,17 @@ class System {
         .catch((error) => {
             let errorCode = error.code;
             let errorMessage = error.message;
-        
+            if (error.code == 'auth/invalid-email') {
+                document.querySelector('.invalid-email').innerHTML = 'Invalid email!'
+            } else if (!username) {
+                document.querySelector('.invalid-username').innerHTML = 'Missing username!'
+            } else if (error.code == 'auth/missing-password') {
+                document.querySelector('.invalid-password').innerHTML = 'Missing password!'
+            } else if (error.code == 'auth/weak-password') {
+                document.querySelector('.invalid-password').innerHTML = 'Must be at least 6 characters long!'
+            } else if (error.code == 'auth/email-already-in-use') {
+                document.querySelector('.invalid-email').innerHTML = 'Email already in use!'
+            }
             console.log(errorCode, errorMessage);
         })
     }
