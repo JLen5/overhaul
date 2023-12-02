@@ -158,12 +158,11 @@ body {
     top: 1035px;
     left: 45px;
 }
-
   
 .teamsChecklist .two{ 
     /*margin-top: -150px;
     margin-left: -800px;*/
-    
+
     margin-top: 55px;
     margin-left: 100px;
   }
@@ -185,24 +184,33 @@ body {
 .teamsChecklist .three{ 
     /*margin-top: -350px;
     margin-left: 100px; /*less negative means right*/
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    padding: 10px; /* Optional: for internal spacing */
+    text-align: center; /* Center text horizontally */
+    margin-top: -160px;
+    margin-left: 480px;
+    
   }
 
 .checkmarkthree{
     z-index: 10;
     position: absolute;
-    margin-top: -220px; /*more negative means up*/ 
-    margin-left: 450px; /*do not change*/
+    /*margin-top: -220px; /*more negative means up*/ 
+    /*margin-left: 450px; /*do not change*/
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
+
+    top: 1035px;
+    left: 425px;
 }
 
 .teamsChecklist .four{ 
     /*margin-top: -150px;
     margin-left: 100px; /*less negative means right*/
+    padding: 10px; /* Optional: for internal spacing */
+    text-align: center; /* Center text horizontally */
+    margin-top: -57px;
+    margin-left: 480px;
   }
 
 .checkmarkfour{
@@ -213,12 +221,20 @@ body {
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
+    
+    top: 1135px;
+    left: 425px;
 }
 
 
 .teamsChecklist .five{ 
     /*margin-top: -350px;
     margin-left: 100px; /*less negative means right*/
+
+    padding: 10px; /* Optional: for internal spacing */
+    text-align: center; /* Center text horizontally */
+    margin-top: -170px;
+    margin-left: 900px;
   }
 
 .checkmarkfive{
@@ -229,11 +245,20 @@ body {
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
+    
+    top: 1035px;
+    left: 845px;
 }
 
 .teamsChecklist .six{ 
     /*margin-top: -150px;
     margin-left: 100px; /*less negative means right*/
+
+    
+    padding: 10px; /* Optional: for internal spacing */
+    text-align: center; /* Center text horizontally */
+    margin-top: -70px;
+    margin-left: 880px;
   }
 
 .checkmarksix{
@@ -244,8 +269,9 @@ body {
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
-    top: 10px;
-    left: 10px;
+    
+    top: 1135px;
+    left: 845px;
 }
 
 
