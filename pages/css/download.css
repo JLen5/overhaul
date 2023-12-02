@@ -1,0 +1,44 @@
+.header{
+    padding: 50px;
+    display: flex;
+    font-size: 64px;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.dldescription{
+    display: flex;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.semi-transparent-square {
+    width: 1150px;
+    height: 550px;
+    background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
+    border-radius: 10px; /* Rounded edges */
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Adjust as needed */
+    margin: 0 auto;
+    margin-top: 50px; /* Adjust margin-top for spacing */
+  }
+  
+  .box {
+    width: calc(30% - 10px); /* Adjust width and spacing as needed */
+    height: 500px; /* Adjust height as needed */
+    background-color: rgba(150, 150, 150, 0.5); /* Adjust transparency and color */
+  }
+
+  .logo{
+    width: calc(50%); /* Adjust width and spacing as needed */
+    height: calc(40%); /* Adjust height as needed */
+    padding-left: calc(25%);
+    padding-top: calc(10%);
+  }
