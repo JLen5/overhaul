@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", attachListeners);
 // test
 
 const system = new System();
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
 
 function attachListeners() {
     // document.querySelector('.login_form')?.addEventListener('submit', login);
@@ -13,6 +15,17 @@ function attachListeners() {
     // if (logoutButton) {
     //     logoutButton.addEventListener('click', logout);
     // }
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect(),
+          scaleX = canvas.width / rect.width,
+          scaleY = canvas.height / rect.height;
+      
+        return {
+          x: (evt.clientX - rect.left) * scaleX,
+          y: (evt.clientY - rect.top) * scaleY
+        }
+    }
+    
     const note = document.querySelector('.notes textarea');
     note.addEventListener('keydown', (event) => {
         saveFile();
@@ -27,22 +40,70 @@ function attachListeners() {
         window.speechSynthesis.speak(msg);
     })
     
-    // const canvas = document.querySelector('canvas');
-    // const ctx = canvas.getContext('2d');
-    // let painting = false;
-    // let color = 'black';
-    // let width = 5;
-    // let x = 0;
-    // let y = 0;
-    // draw on mousedown
-    // note.addEventListener('mousedown', (event) => {
-    //     console.log('test')
-    //     painting = true;
-    //     x = event.offsetX;
-    //     y = event.offsetY;
-    // });
-    // note.eventListener('mousemove', (event) => {})
+    let painting = false;
+    
+    const penPoints = [];
+    let penColor = 'black';
+    let penWidth = 0.5;
+    
+    const highlighterPoints = [];
+    let highlighterColor = 'yellow';
+    let highlighterWidth = 2;
 
+    const tools = ['p', 'e', 'h']
+
+    let tool = tools[0];
+
+    const useTools = (details) => {
+        switch (tool) {
+            case 'p':
+                penDraw(details, penWidth, penColor);
+                break;
+            case 'e':
+                penColor = 'white';
+                break;
+            case 'h':
+                penColor = 'yellow';
+                break;
+        }
+    }
+
+    const penDraw = (details, width, color) => {
+        const currentStroke = penPoints[penPoints.length - 1];
+        let {x, y} = getMousePos(canvas, details);
+        currentStroke.push({x: x, y: y});
+        draw(penPoints, width, color);
+    }
+
+    // draw on mousedown
+    note.addEventListener('mousedown', (event) => {
+        // console.log('test')
+        painting = true;
+        penPoints.push([])
+    });
+    note.addEventListener('mouseup', (event) => {
+        painting = false;
+    })
+    note.addEventListener('mousemove', (event) => {
+        if (!painting) {return}
+        event.preventDefault();
+        useTools(event);
+    })
+
+    note.addEventListener('touchstart', (event) => {
+        // console.log('test')
+        painting = true;
+        penPoints.push([])
+    });
+    note.addEventListener('touchend', (event) => {
+        painting = false;
+    })
+
+    note.addEventListener('touchmove', (event) => {
+        if (!painting) {return}
+        event.preventDefault();
+        useTools(event.targetTouches[0]);
+    })
 
     system.auth.onAuthStateChanged((user) => {
         // add files
@@ -70,6 +131,28 @@ function attachListeners() {
             addFile(fileName, id);
         });
     }
+}
+
+
+const draw = (points, width, color) => {
+    // console.log('drawing')
+    points.forEach(strokes => {
+        ctx.beginPath();
+        strokes.forEach((point, index) => {
+            if(index == 0){
+                ctx.moveTo(point.x, point.y);
+            } else {
+                ctx.lineTo(point.x, point.y);
+            }
+        })
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.shadowBlur = 0;
+        ctx.imageSmoothingEnabled = false;
+        ctx.stroke();
+    })
 }
 
 const createNote = async (title, content, id) => {
