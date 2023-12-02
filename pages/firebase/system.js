@@ -83,21 +83,22 @@ class System {
     }
 
     async register(email, password, username){
-        await createUserWithEmailAndPassword(this.auth, email, password)
+        console.log('registering')
+        createUserWithEmailAndPassword(this.auth, email, password)
         .then ((userCredential) => {
             let user = userCredential.user;
-
+            console.log(user)
             this.setData(ref(this.db, 'users/' + user.uid), {
                 name: username,
                 id: user.uid,
                 notes: [
                     {
                         id: nanoid(8),
-                        title: 'My First Note',
+                        timestamp: Date.now(),
+                        title: `${username}'s First Note`,
                         content: 'This is my first note'
                     }
                 ]
-            
             })
         })
         .catch((error) => {
