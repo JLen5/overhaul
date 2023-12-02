@@ -79,15 +79,7 @@ body {
 }
 
 .teamsdescription {
-    /* width: 80%;
-    display: inline;
-    font-size: 20px;
-    font-family: 'Roboto';
-    text-align: left;
-    margin-bottom: 20px; */
-    
-    /*margin-top: 100px;
-    font-size: 20px; */
+    z-index: 10;
     font-size: 30px;
     font-family: 'normal';
     font-weight: lighter;
@@ -96,12 +88,24 @@ body {
     justify-content: center;
     align-items: center;
     text-align: left;
-    width: 60%; /* Set your desired width */
+    width: 55%; /* Set your desired width */
 
-    margin-left: 500px; /* Moves text 20px to the right */
-    margin-top: 700px;
+    margin-left: 550px; /* Moves text 20px to the right */
+    margin-top: 670px;
     position: absolute;
     top: 5px; /* Moves text 5px down from its normal position */
+}
+
+.my-box {
+    margin-top: -745px;    /* Move the box down by 20px */
+    margin-left: 525px;   /* Move the box right by 50px */
+    width: 700px;        /* Width of the box */
+    height: 250px;       /* Height of the box */
+    background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
+    /*border: 2px solid black;  /* Border around the box */
+    /*padding: 20px;       /* Space between the border and the content inside */
+    /*margin: 10px;        /* Space around the box */
+    border-radius: 10px; /* Rounded edges */
 }
 
 
