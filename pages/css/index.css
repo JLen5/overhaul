@@ -87,12 +87,13 @@ body {
     justify-content: center;
     align-items: center;
     text-align: left;
-    width: 53%; /* Set your desired width */
+    width: 80%; /* Set your desired width */
 
-    margin-left: 550px; /* Moves text 20px to the right */
-    margin-top: 670px;
-    position: absolute;
-    top: 5px; /* Moves text 5px down from its normal position */
+    margin-left: 60px; /* Moves text 20px to the right */
+    margin-top: -30px;
+    padding-top: 2%;
+    position: static;
+    /*top: px; /* Moves text 5px down from its normal position */
 }
 
 .my-box {
@@ -307,6 +308,7 @@ body {
     bottom: 0;
     right: 0;
     height: calc(100vh - 128px);
+    z-index: -10;
 }
 
 .phone {
