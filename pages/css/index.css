@@ -88,7 +88,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: left;
-    width: 55%; /* Set your desired width */
+    width: 53%; /* Set your desired width */
 
     margin-left: 550px; /* Moves text 20px to the right */
     margin-top: 670px;
@@ -102,11 +102,66 @@ body {
     width: 700px;        /* Width of the box */
     height: 250px;       /* Height of the box */
     background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
-    /*border: 2px solid black;  /* Border around the box */
-    /*padding: 20px;       /* Space between the border and the content inside */
-    /*margin: 10px;        /* Space around the box */
     border-radius: 10px; /* Rounded edges */
 }
+
+.bigTeamsBox {
+    margin-top: 100px;    /* Move the box down by 20px */
+    margin-left: 10px;   /* Move the box right by 50px */
+    width: 1230px;        /* Width of the box */
+    height: 250px;       /* Height of the box */
+    background-color: #7D7DF7; /* Using rgba with alpha value for transparency */
+    border-radius: 10px; /* Rounded edges */
+}
+
+.teamsChecklist {
+    font-size: 25px;
+    font-family: 'normal';
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%; /* Set your desired width */
+}
+
+.teamsChecklist .one{
+    /*top: 300px; /* Adjust top position as needed */
+    /*left: 50px; /* Adjust left position as needed */
+    
+    /*margin-top: -195px;
+    margin-left: -350px;*/
+    margin-top: -350px;
+    margin-left: -675px;
+  }
+
+.checkmarkone{
+    z-index: 10;
+    position: absolute;
+    bottom: -490px;
+    right: 1125px;
+    height: calc(90vh - 128px);
+    max-width: 10%;
+    max-height: 10%;
+}
+
+  
+.teamsChecklist .two{
+    margin-top: -200px;
+    margin-left: -675px;
+  }
+
+.checkmarktwo{
+    z-index: 10;
+    position: absolute;
+    bottom: -640px;
+    right: 1125px;
+    height: calc(90vh - 128px);
+    max-width: 10%;
+    max-height: 10%;
+}
+
 
 
 .actions {
