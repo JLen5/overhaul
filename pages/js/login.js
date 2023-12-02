@@ -1,3 +1,7 @@
+import firebaseApp from "./firebase.js";
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+
+const firebaseAuth = getAuth(firebaseApp)
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
 // test
@@ -23,7 +27,18 @@ function login(event) {
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
 
-    window.location = 'notes.html';
+    signInWithEmailAndPassword(firebaseAuth, username, password)
+    .then((userCredential) => {
+        const user = userCredential.user
+        console.log('success')
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('invalid credentials')
+    })
+
+    //window.location = 'notes.html';
 }
 
 function logout(event) {
