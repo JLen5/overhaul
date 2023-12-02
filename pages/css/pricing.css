@@ -69,7 +69,7 @@
   }
 
   .white-square {
-    width: 500px;
+    width: 35%;
     height: 450px;
     background-color: #fff; /* White square background color */
     position: absolute; /* Absolute positioning */

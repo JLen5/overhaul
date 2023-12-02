@@ -28,6 +28,15 @@ function attachListeners() {
     note.addEventListener('keydown', (event) => {
         saveFile();
     })
+
+    // tts event listener
+    const mic = document.querySelector('.mic-btn')
+    mic.addEventListener('click', (event) => {
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = document.querySelector('.notes textarea').value;
+        msg.lang = 'fr-FR'
+        window.speechSynthesis.speak(msg);
+    })
     
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
