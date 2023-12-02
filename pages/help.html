@@ -1,33 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InkLink</title>
-    <link rel="stylesheet" href="./css/help.css">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" href="assets/link.png" type="image/x-icon">
-  </head>
-  <body>
-    <div class="navbar">
-        <div class="pages">
-          <a href="index.html">
-            <img src="assets/logo.png" alt="logo">
-          </a>
-          <a href="pricing.html">Pricing</a>
-          <a href="teams.html">For Teams</a>
-          <a href="individuals.html">For Individuals</a>
-          <a href="mission.html">Mission</a>
-        </div>
-        <div class="general">
-          <a href="help.html">Help</a>
-          <a href="download.html" class="btn">Download</a>
-        </div>
-      </div>
-    <div class="main">
-        help
-    </div>
-  </body>
-  <script src="./js/help.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Recorder</title>
+</head>
+<body>
+  <button id="startRecord">Start Recording</button>
+  <button id="stopRecord" disabled>Stop Recording</button>
+  <button id="saveRecord" disabled>Save Recording</button>
+  <div id="recordedAudio"></div>
+  <p>Recording status: <span id="status">Idle</span></p>
+  <audio controls id="audioPlayback"></audio>
+
+  <script src="recorder/recorder.js"></script>
+  <script type = "module" src="js/help.js"></script>
+</body>
 </html>
