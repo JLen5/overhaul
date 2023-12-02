@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
-
+// test
 function attachListeners() {
     document.querySelector('.login_form')?.addEventListener('submit', login);
     let logoutButton = document.querySelector('.logout');

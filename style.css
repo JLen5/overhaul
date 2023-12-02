@@ -61,7 +61,7 @@ body {
     width: 80%;
     display: inline;
     font-size: 14px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
 }
 
 .actions {
