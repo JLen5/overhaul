@@ -46,17 +46,15 @@ class System {
                     console.log("creating user data");
 
                     this.setData(this.userRef, {
-                        name: 'Guest',
+                        name: 'username',
                         id: user.uid,
-                        room: '',
-                        position: {
-                            x: 0,
-                            y: 0
-                        },
-                        window: {
-                            width: 0,
-                            height: 1
-                        },
+                        notes: [
+                            {
+                                id: nanoid(),
+                                title: 'My First Note',
+                                content: 'This is my first note'
+                            }
+                        ]
                     })
                 }
             })
@@ -72,6 +70,9 @@ class System {
 
     async signIn(email, password){
         await signInWithEmailAndPassword(this.auth, email, password)
+        .then ((userCredential) => {
+            let user = userCredential.user;
+        })
         
         .catch((error) => {
             let errorCode = error.code;
@@ -85,7 +86,6 @@ class System {
         await createUserWithEmailAndPassword(this.auth, email, password)
         .then ((userCredential) => {
             let user = userCredential.user;
-            console.log(user)
         })
         .catch((error) => {
             let errorCode = error.code;
@@ -97,6 +97,10 @@ class System {
 
     async setData(ref, data){
         await set(ref, data);
+    }
+
+    async getData(ref, data){
+        return await get(ref, data);
     }
 
     // sign the user out
