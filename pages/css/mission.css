@@ -1,5 +1,5 @@
 .transparent-square {
-    width: 50em;
+    width: 40em;
     height: 30em;
     background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
     border-radius: 10px; /* Rounded edges */
@@ -54,7 +54,7 @@
 }
 
 .growth-square {
-  width: 40em;
+  width: 35em;
   height: 30em;
   background-color: rgba(225, 225, 225, 0.7); /* Using rgba with alpha value for transparency */
   border-radius: 10px; /* Rounded edges */
