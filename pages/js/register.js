@@ -16,7 +16,7 @@ registerButton.addEventListener('click', () => {
             return;
             
         } 
-        system.register(email.value, password.value);
+        system.register(email.value, password.value, username.value);
         // window.location.assign('login.html');
     }catch(error){
         console.log(error);

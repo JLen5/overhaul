@@ -24,7 +24,7 @@
 
   .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%; /* Adjust as needed */
     margin: 0 auto;
     margin-top: 50px; /* Adjust margin-top for spacing */
