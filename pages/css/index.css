@@ -79,7 +79,6 @@ body {
 }
 
 .teamsdescription {
-    z-index: 10;
     font-size: 30px;
     font-family: 'normal';
     font-weight: lighter;
@@ -168,7 +167,6 @@ body {
     width: 80%;
     display: flex;
     justify-content: space-between;
-    z-index: 10;
 }
 
 .actions > a {
@@ -200,7 +198,6 @@ body {
 }
 
 .phone {
-    z-index: 10;
     position: absolute;
     bottom: 48px;
     right: 124px;
@@ -214,7 +211,6 @@ body {
 .computer {
     max-width: 50%;
     max-height: 50%;
-    z-index: 100;
     position: absolute;
     bottom: -350px;
     right: 700px;
@@ -323,3 +319,31 @@ body {
     cursor: pointer;
     color: black; 
   }
+
+  .button-container {
+    position: fixed;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    display: flex; /* Use flexbox to arrange buttons horizontally */
+    flex-direction: row; /* Arrange buttons in a row */
+    border: 2px solid rgba(159, 159, 161, 0.5);
+    border-radius: 5px; /* Optional: add border radius for a rounded look */
+    padding: 10px; /* Optional: add padding inside the border */
+  }
+  
+  .instagram-btn {
+    margin-right: 10px; /* Add some margin between buttons */
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    height: 50px;
+  }
+  
+  .instagram-btn:last-child {
+    margin-right: 0; /* Remove margin for the last button */
+  }
+  
+  
