@@ -14,6 +14,8 @@ function attachListeners() {
     }
 }
 
+// james' branch
+
 function addFile() {
     let filebar = document.querySelector('.files');
     let newFileButton = document.createElement('button');
