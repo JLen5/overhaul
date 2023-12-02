@@ -18,6 +18,22 @@ function attachListeners() {
         saveFile();
     })
     
+    // const canvas = document.querySelector('canvas');
+    // const ctx = canvas.getContext('2d');
+    // let painting = false;
+    // let color = 'black';
+    // let width = 5;
+    // let x = 0;
+    // let y = 0;
+    // draw on mousedown
+    // note.addEventListener('mousedown', (event) => {
+    //     console.log('test')
+    //     painting = true;
+    //     x = event.offsetX;
+    //     y = event.offsetY;
+    // });
+    // note.eventListener('mousemove', (event) => {})
+
 
     system.auth.onAuthStateChanged((user) => {
         // add files
