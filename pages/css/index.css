@@ -78,14 +78,24 @@ body {
     margin-bottom: 20px;
 }
 
-
 .teamsdescription {
-    width: 80%;
+    /* width: 80%;
     display: inline;
     font-size: 20px;
     font-family: 'Roboto';
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
+    
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: 'normal';
+    font-weight: lighter;
+    color: rgb(0,0,102);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 80%; /* Set your desired width */
 }
 
 .actions {
