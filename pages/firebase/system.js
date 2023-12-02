@@ -2,6 +2,7 @@
 import {onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, getAuth} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { initializeApp} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getDatabase, ref, set, get, onDisconnect } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+import {getStorage, ref as sRef,uploadBytes} from  "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 
 
 // import firebaseConfig from './config.js';
@@ -16,6 +17,8 @@ class System {
         this.app = initializeApp(firebaseConfig);
         this.auth = getAuth(this.app);
         this.db = getDatabase(this.app);
+        this.storage = getStorage();
+        this.storageRef = sRef(this.storage, "users");
     
         // this.analytics = getAnalytics(this.app);
 
@@ -131,6 +134,14 @@ class System {
     appendLogoutButton(element){
         element.addEventListener('click', () => {
             this.signOut();
+        })
+    }
+
+    async store(blob, noteID){
+        this.getData(this.userRef).then((snapshot)=> {
+            const data = snapshot.val()
+            const uid = data.id
+            uploadBytes(sRef(this.storage, `/${uid}/${noteID}`),blob)
         })
     }
 }
