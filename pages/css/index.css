@@ -114,14 +114,14 @@ body {
 }
 
 .teamsChecklist {
-    font-size: 25px;
+    font-size: 22px;
     font-family: 'normal';
     font-weight: bold;
     color: rgb(255, 255, 255);
     display: flex;
-    justify-content: center;
+    /*justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;*/
     width: 100%; /* Set your desired width */
 }
 
@@ -131,36 +131,122 @@ body {
     
     /*margin-top: -195px;
     margin-left: -350px;*/
-    margin-top: -350px;
-    margin-left: -675px;
+    /*margin-top: -350px;
+    margin-left: -725px;*/
+
+    margin-top: 50px;
+    margin-left: 100px;
+
+    /*top: 600px; /* Adjust top position as needed */
+    /*left: 50px; /* Adjust left position as needed */
   }
 
 .checkmarkone{
     z-index: 10;
     position: absolute;
-    bottom: -490px;
-    right: 1125px;
+    /*bottom: -490px;
+    right: 1125px;*/
+
+    
+    /*margin-top: -220px; /*more negative means up*/ 
+    /*margin-left: 70px; /*do not change*/
+    
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
+
+    top: 1035px;
+    left: 45px;
 }
 
   
-.teamsChecklist .two{
-    margin-top: -200px;
-    margin-left: -675px;
+.teamsChecklist .two{ 
+    /*margin-top: -150px;
+    margin-left: -800px;*/
+    
+    margin-top: 55px;
+    margin-left: 100px;
   }
 
 .checkmarktwo{
+    /*margin-top: -120px; /*more negative means up*/
+    /*margin-left: 70px; /*do not change*/
+
     z-index: 10;
     position: absolute;
-    bottom: -640px;
-    right: 1125px;
+    height: calc(90vh - 128px);
+    max-width: 10%;
+    max-height: 10%;
+
+    top: 1135px;
+    left: 45px;
+}
+
+.teamsChecklist .three{ 
+    /*margin-top: -350px;
+    margin-left: 100px; /*less negative means right*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+.checkmarkthree{
+    z-index: 10;
+    position: absolute;
+    margin-top: -220px; /*more negative means up*/ 
+    margin-left: 450px; /*do not change*/
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
 }
 
+.teamsChecklist .four{ 
+    /*margin-top: -150px;
+    margin-left: 100px; /*less negative means right*/
+  }
+
+.checkmarkfour{
+    z-index: 10;
+    position: absolute;
+    /*margin-top: -120px; /*more negative means up*/ 
+    /*margin-left: 450px; /*do not change*/
+    height: calc(90vh - 128px);
+    max-width: 10%;
+    max-height: 10%;
+}
+
+
+.teamsChecklist .five{ 
+    /*margin-top: -350px;
+    margin-left: 100px; /*less negative means right*/
+  }
+
+.checkmarkfive{
+    z-index: 10;
+    position: absolute;
+    /*margin-top: -220px; /*more negative means up*/ 
+    /*margin-left: 450px; /*do not change*/
+    height: calc(90vh - 128px);
+    max-width: 10%;
+    max-height: 10%;
+}
+
+.teamsChecklist .six{ 
+    /*margin-top: -150px;
+    margin-left: 100px; /*less negative means right*/
+  }
+
+.checkmarksix{
+    z-index: 10;
+    position: absolute;
+    /*margin-top: -120px; /*more negative means up*/ 
+    /*margin-left: 450px; /*do not change*/
+    height: calc(90vh - 128px);
+    max-width: 10%;
+    max-height: 10%;
+    top: 10px;
+    left: 10px;
+}
 
 
 .actions {
