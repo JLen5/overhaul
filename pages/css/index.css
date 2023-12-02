@@ -89,10 +89,10 @@ body {
     text-align: left;
     width: 53%; /* Set your desired width */
 
-    margin-left: 550px; /* Moves text 20px to the right */
-    margin-top: 670px;
+    margin-left: 25px; /* Moves text 20px to the right */
+    margin-top: 20px;
     position: absolute;
-    top: 5px; /* Moves text 5px down from its normal position */
+    /*top: 5px; /* Moves text 5px down from its normal position */
 }
 
 .my-box {
@@ -307,6 +307,7 @@ body {
     bottom: 0;
     right: 0;
     height: calc(100vh - 128px);
+    z-index: -10;
 }
 
 .phone {
