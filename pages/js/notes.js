@@ -34,7 +34,8 @@ function attachListeners() {
     mic.addEventListener('click', (event) => {
         var msg = new SpeechSynthesisUtterance();
         msg.text = document.querySelector('.notes textarea').value;
-        msg.lang = 'fr-FR'
+        // msg.text = window.getSelection().toString()
+        msg.lang = 'en-US'
         window.speechSynthesis.speak(msg);
     })
     
