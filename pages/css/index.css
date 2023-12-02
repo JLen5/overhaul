@@ -78,6 +78,16 @@ body {
     margin-bottom: 20px;
 }
 
+
+.teamsdescription {
+    width: 80%;
+    display: inline;
+    font-size: 20px;
+    font-family: 'Roboto';
+    text-align: left;
+    margin-bottom: 20px;
+}
+
 .actions {
     width: 80%;
     display: flex;
@@ -126,10 +136,12 @@ body {
 }
 
 .computer {
+    max-width: 50%;
+    max-height: 50%;
     z-index: 100;
     position: absolute;
-    bottom: -400px;
-    right: 124px;
+    bottom: -350px;
+    right: 450px;
     height: calc(90vh - 128px);
 }
 
