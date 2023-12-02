@@ -1,5 +1,5 @@
 .transparent-square {
-    width: 800px;
+    width: 50%;
     height: 550px;
     background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
     border-radius: 10px; /* Rounded edges */
@@ -25,13 +25,15 @@
 }
 
 .growth-statement {
-  font-size: 30px;
+  font-size: 220%;
   font-family: 'normal';
   font-weight: lighter;
   color: rgb(75, 75, 75);
   display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
+  align-self: center;
   width: 90%; /* Set your desired width */
   padding-top: 30px; /* Adjust the value to shift the text downwards */
   padding-left: 20px;
@@ -39,25 +41,25 @@
 
 .steph {
   position: absolute;
-  bottom: 0;
+  top: 10%;
   right: 0;
-  height: calc(100vh - 128px);
+  height: calc(100vh - 150px);
 }
 
 .growth {
   position: absolute;
-  bottom: -500px;
+  top: 90%;
   left: 40px;
-  height: calc(100vh - 400px);
+  height: calc(100vh - 50%);
 }
 
 .growth-square {
-  width: 600px;
-  height: 480px;
+  width: 40%;
+  height: 60%;
   background-color: rgba(225, 225, 225, 0.7); /* Using rgba with alpha value for transparency */
   border-radius: 10px; /* Rounded edges */
   position: absolute;
-  top: 105%; /* Adjust top or bottom based on your layout */
+  top: 90%; /* Adjust top or bottom based on your layout */
   right: 2%; /* Positioning the square on the right side */
 }
 

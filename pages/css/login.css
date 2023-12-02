@@ -101,7 +101,6 @@ h2 span {
     padding:0;
     cursor: pointer;
     width: fit-content;
-    transition: opacity 0.3s;
 }
 
 .forgot-password {
