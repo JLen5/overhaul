@@ -41,6 +41,7 @@
     background-color: #82C3FF;
     transition: opacity 0.3s;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 input {
@@ -112,8 +113,19 @@ h2 span {
 }
 
 .no-account {
-    margin-top: 0.7em;
+    margin-top: 0.5em;
     font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.invalid-login {
+    font-size: 0.8em;
+    color: red;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
     display: flex;
     justify-content: center;
 }
