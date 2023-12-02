@@ -1,12 +1,51 @@
-.title {
-    font-size: 64px;
+.plan {
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-family: 'Roboto';
-    font-family: Impact, Charcoal, sans-serif;
-    margin-left: 20px;
+    font-size: 40px;
+    width: 100%; /* Set your desired width */
+    height: 100px; /* Set your desired height */
 }
 
-.title {
+.price {
+    font-weight: lighter;
+    font-size: 30px;
+    color: grey;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto';
+    width: 100%; /* Set your desired width */
+}
+
+.features {
+    margin-top: 30px;
+    font-size: 25px;
+    font-family: 'normal';
+    font-weight: lighter;
+    color: rgb(0,0,102);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%; /* Set your desired width */
+}
+
+.check {
+    position: fixed;
+    bottom: 0;
+    right: 1000px;
+    height: calc(100vh - 128px);
+}
+
+.top {
+    display: flex;
+    font-size: 64px;
+    font-family: 'Roboto', sans-serif;
     justify-content: flex-start;
     align-items: center;
 }
@@ -23,16 +62,18 @@
 }
 
 .semi-transparent-square {
-    width: 950px;
-    height: 500px;
+    width: 1150px;
+    height: 550px;
     background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
+    border-radius: 10px; /* Rounded edges */
   }
 
   .white-square {
-    width: 400px;
-    height: 350px;
+    width: 500px;
+    height: 450px;
     background-color: #fff; /* White square background color */
     position: absolute; /* Absolute positioning */
+    border-radius: 10px; /* Rounded edges */
   }
   
   /* Positioning for the first white square */
@@ -44,5 +85,28 @@
   /* Positioning for the second white square */
   .white-square:nth-child(2) {
     top: 300px; /* Adjust top position as needed */
-    left: 500px; /* Adjust left position as needed */
+    left: 600px; /* Adjust left position as needed */
   }
+
+  .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+  .start {
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px; /* Rounded edges */
+    margin-top: 50px;
+    display: flex;
+    background-color: var(--btn-primary-dark);
+    color: white;
+    border: none;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    /* Additional styles */
+    width: 300px; /* Set your desired width */
+    height: 50px; /* Set your desired height */
+}
