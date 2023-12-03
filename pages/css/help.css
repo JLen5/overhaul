@@ -1,15 +1,15 @@
 /* Basic reset and styles */
 * {
     margin: 0;
-    padding: 0;
+    padding: 1.1px;
     box-sizing: border-box;
-  }
+}
 
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
-    padding: 20px;
+    padding: 0px;
   }
   
   /* FAQ styles */
@@ -60,6 +60,7 @@
     font-family: 'Roboto', sans-serif;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 

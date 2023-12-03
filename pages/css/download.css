@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 1.1px;
+}
+
 .header{
     padding: 50px;
     display: flex;
