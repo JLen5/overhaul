@@ -99,8 +99,8 @@ body {
 }
 
 .my-box {
-    margin-top: -745px;    /* Move the box down by 20px */
-    margin-left: 525px;   /* Move the box right by 50px */
+    margin-top: 30%;
+    margin-left: 50%;   /* Move the box right by 50px */
     width: 700px;        /* Width of the box */
     height: 250px;       /* Height of the box */
     background-color: rgba(225,225,225); /* Using rgba with alpha value for transparency */
