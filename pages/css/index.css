@@ -468,20 +468,23 @@ body {
     right: 20px; /* Adjust the distance from the right */
     display: flex; /* Use flexbox to arrange buttons horizontally */
     flex-direction: row; /* Arrange buttons in a row */
-    border: 2px solid rgba(159, 159, 161, 0.5);
     border-radius: 5px; /* Optional: add border radius for a rounded look */
     padding: 10px; /* Optional: add padding inside the border */
   }
   
   .instagram-btn {
-    margin-right: 10px; /* Add some margin between buttons */
+    margin-right: 10px;
     padding: 10px 20px;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
     font-family: Arial, sans-serif;
     font-size: 16px;
     height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3498db; /* Background color for the buttons */
+    border: 2px solid #3498db; /* Border color for the buttons, matching the background color */
   }
   
   .instagram-btn:last-child {
