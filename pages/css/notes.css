@@ -283,6 +283,15 @@ body {
     display: inline-block;
 }
   
+.dropdown-option:hover {
+    opacity: 80%;
+}
+
+.dropdown-option {
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
