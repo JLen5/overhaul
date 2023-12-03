@@ -1,0 +1,62 @@
+/* Basic reset and styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  /* FAQ styles */
+  .faq-container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+  
+  .faq-question {
+    text-align: center;
+    font-size: 200%;
+    background-color: #eee;
+    padding: 3%;
+    cursor: pointer;
+  }
+  
+  .faq-answer {
+    text-align: center;
+    font-size: 150%;
+    padding: 3%;
+    display: none;
+  }
+  
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+  
+  
+  .header{
+    padding: 50px;
+    display: flex;
+    font-size: 64px;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.dldescription{
+    display: flex;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
