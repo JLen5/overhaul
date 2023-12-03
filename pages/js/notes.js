@@ -1,7 +1,7 @@
 import System from "../firebase/system.js";
 import {nanoid} from 'https://cdnjs.cloudflare.com/ajax/libs/nanoid/3.3.4/nanoid.min.js'
 
-document.addEventListener("DOMContentLoaded", attachListeners);
+// document.addEventListener("DOMContentLoaded", attachListeners);
 // document.addEventListener("DOMContentLoaded", checkPage);
 // test
 
@@ -9,7 +9,65 @@ const system = new System();
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-function attachListeners() {
+
+let audioRecorder;
+let recordedChunks = [];
+// import System from "../firebase/system.js";
+
+// const system = new System()
+
+document.getElementById('startRecord').addEventListener('click', startRecording);
+document.getElementById('stopRecord').addEventListener('click', stopRecording);
+document.getElementById('saveRecord').addEventListener('click', saveRecording);
+
+function startRecording() {
+  navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(function (stream) {
+      audioRecorder = new MediaRecorder(stream);
+      audioRecorder.ondataavailable = function (e) {
+        recordedChunks.push(e.data);
+      };
+      audioRecorder.onstop = function () {
+        const audioBlob = new Blob(recordedChunks, { type: 'audio/wav' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        document.getElementById('audioPlayback').src = audioUrl;
+        document.getElementById('status').innerText = 'Recording Stopped';
+        document.getElementById('startRecord').disabled = false;
+        document.getElementById('stopRecord').disabled = true;
+        document.getElementById('saveRecord').disabled = false;
+      };
+      audioRecorder.start();
+      document.getElementById('status').innerText = 'Recording...';
+      document.getElementById('startRecord').disabled = true;
+      document.getElementById('stopRecord').disabled = false;
+      document.getElementById('saveRecord').disabled = true;
+    })
+    .catch(function (err) {
+      console.error('Error accessing the microphone:', err);
+    });
+}
+
+function stopRecording() {
+  audioRecorder.stop();
+}
+
+function saveRecording() {
+  const audioBlob = new Blob(recordedChunks, { type: 'audio/wav' });
+  system.store(audioBlob, 0)
+  console.log("passed")
+  /*const audioUrl = URL.createObjectURL(audioBlob);
+  const downloadLink = document.createElement('a');
+  downloadLink.href = audioUrl;
+  downloadLink.download = 'recorded_audio.wav';
+  downloadLink.click();
+  **/
+}
+
+
+// notes writingg =--=-=-=-=-=-=--=-==--=-=-=-=-=-=--=-=
+
+
+// function attachListeners() {
     // document.querySelector('.login_form')?.addEventListener('submit', login);
     // let logoutButton = document.querySelector('.logout');
     // if (logoutButton) {
@@ -69,7 +127,15 @@ function attachListeners() {
     eraserBtn.addEventListener('click', () => {tool = tools[1];})
     highlighterBtn.addEventListener('click', () => {tool = tools[2];})
     
-    cursorBtn.addEventListener('click', () => {drawing = !drawing;})
+    cursorBtn.addEventListener('click', () => {
+        if(drawing) {
+            drawing = false;
+            canvas.style.pointerEvents = 'none';
+        } else {
+            drawing = true;
+            canvas.style.pointerEvents = 'auto';
+        }
+    })
 
     const useTools = (details) => {
         if(!drawing) {return}
@@ -78,15 +144,15 @@ function attachListeners() {
                 penDraw(details, penWidth, penColor);
                 break;
                 
-                case 'e':
-                    eraserDraw(details);
-                    break;
-                    
-                    case 'h':
-                        highlightDraw(details, highlighterWidth, highlighterColor);
-                        break;
-                    }
-                }
+            case 'e':
+                eraserDraw(details);
+                break;
+                
+            case 'h':
+                highlightDraw(details, highlighterWidth, highlighterColor);
+                break;
+            }
+        }
                 
     const pushStroke = () => {
         if(!drawing) {return}
@@ -178,13 +244,13 @@ function attachListeners() {
         })
     }
     // draw on mousedown
-    note.addEventListener('mousedown', (event) => {
+    canvas.addEventListener('mousedown', (event) => {
         painting = true;pushStroke();
     });
-    note.addEventListener('mouseup', (event) => {
+    canvas.addEventListener('mouseup', (event) => {
         painting = false;
     })
-    note.addEventListener('mousemove', (event) => {
+    canvas.addEventListener('mousemove', (event) => {
         hoverTools(event);
         if (!painting) {return}
         if(!drawing) {return}
@@ -192,13 +258,13 @@ function attachListeners() {
         useTools(event);
     })
 
-    note.addEventListener('touchstart', (event) => {
+    canvas.addEventListener('touchstart', (event) => {
         painting = true;pushStroke();
     });
-    note.addEventListener('touchend', (event) => {
+    canvas.addEventListener('touchend', (event) => {
         painting = false;
     })
-    note.addEventListener('touchmove', (event) => {
+    canvas.addEventListener('touchmove', (event) => {
         hoverTools(event.targetTouches[0]);
         if (!painting) {return}
         if(!drawing) {return}
@@ -232,7 +298,7 @@ function attachListeners() {
             addFile(fileName, id);
         });
     }
-}
+// }
 
 
 const draw = (points, width, color, transparency = 1) => {

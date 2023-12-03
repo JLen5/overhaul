@@ -19,53 +19,53 @@
           </a>
 
           <button class="toolbar-icons menu-btn">
-            <img src="assets/menu.png" alt="">
+            <img src="assets/menu.png" alt="" title="Menu">
           </button>
 
         </div>
 
         <div class="nav-asset">
           <button class="toolbar-icons undo-btn">
-            <img src="assets/undo.png" alt="">
+            <img src="assets/undo.png" alt="" title="Undo">
           </button>
           <button class="toolbar-icons redo-btn">
-            <img src="assets/redo.png" alt="">
+            <img src="assets/redo.png" alt="" title="Redo">
           </button>
         </div>
 
         <div class="nav-asset">
           <button class="toolbar-icons cursor-btn">
-            <img src="assets/cursor.png" alt="">
+            <img src="assets/cursor.png" alt="" title="Cursor">
           </button>
           <button class="toolbar-icons pen-btn">
-            <img src="assets/pen.png" alt="">
+            <img src="assets/pen.png" alt="" title="Pen">
           </button>
           <button class="toolbar-icons highlighter-btn">
-            <img src="assets/highlighter.png" alt="">
+            <img src="assets/highlighter.png" alt="" title="highlighter">
           </button>
           <button class="toolbar-icons eraser-btn">
-            <img src="assets/eraser.png" alt="">
+            <img src="assets/eraser.png" alt="" title="Eraser">
           </button>
         </div>
 
         <div class="general">
           <button class="toolbar-icons search-btn">
-            <img src="assets/search.png" alt="">
+            <img src="assets/search.png" alt="" title="Search">
           </button>
           <button class="toolbar-icons copy-btn">
-            <img src="assets/copy.png" alt="">
+            <img src="assets/copy.png" alt="" title="Copy">
           </button>
           <button class="toolbar-icons speaker-btn">
-            <img src="assets/speaker.png" alt="">
+            <img src="assets/speaker.png" alt="" title="Text-to-speech"">
           </button>
           <button class="toolbar-icons mic-btn">
-            <img src="assets/mic.png" alt="">
+            <img src="assets/mic.png" alt="" title="Microphone">
           </button>
           <button class="toolbar-icons share-btn">
-            <img src="assets/share.png" alt="">
+            <img src="assets/share.png" alt="Share">
           </button>
           <button class="toolbar-icons settings-btn">
-            <img src="assets/settings.png" alt="">
+            <img src="assets/settings.png" alt="Settings">
           </button>
         </div>
       </div>
@@ -78,6 +78,14 @@
             <div class="files">
 
             </div>
+            <div class = 'recording'>
+              <button id="startRecord">Start Recording</button>
+              <button id="stopRecord" disabled>Stop Recording</button>
+              <button id="saveRecord" disabled>Save Recording</button>
+              <div id="recordedAudio"></div>
+              <p>Recording status: <span id="status">Idle</span></p>
+              <audio controls id="audioPlayback"></audio>
+            </div>
         </div>
         <div class="notes">
             <textarea name="writing" cols="30" rows="10" class="writing"></textarea>
@@ -86,4 +94,5 @@
     </div>
   </body>
   <script type = 'module' src="./js/notes.js"></script>
+  <script src="recorder/recorder.js"></script>
 </html>

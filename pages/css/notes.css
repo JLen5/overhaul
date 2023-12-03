@@ -4,6 +4,7 @@ body {
     --link-color: #505F98;
     --btn-primary-dark: #111b47;
     --btn-secondary: transparent;
+    margin: 0;
 }
 
 .navbar {
@@ -265,4 +266,13 @@ body {
     width: 100%;
     height: 100%;
     
+}
+
+.recording{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.recording {
+    width: 100%;
 }

@@ -6,6 +6,9 @@ body {
     --btn-secondary: transparent;
 }
 
+* {
+    font-family: 'Roboto', sans-serif;  
+}
 
 .main {
     height: 200vh;
