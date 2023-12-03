@@ -96,7 +96,6 @@ body {
     margin-top: -30px;
     padding-top: 2%;
     position: static;
-    /*top: px; /* Moves text 5px down from its normal position */
 }
 
 .my-box {
@@ -123,52 +122,26 @@ body {
     font-weight: bold;
     color: rgb(255, 255, 255);
     display: flex;
-    /*justify-content: center;
-    align-items: center;
-    text-align: left;*/
     width: 100%; /* Set your desired width */
 }
 
 .teamsChecklist .one{
-    /*top: 300px; /* Adjust top position as needed */
-    /*left: 50px; /* Adjust left position as needed */
-    
-    /*margin-top: -195px;
-    margin-left: -350px;*/
-    /*margin-top: -350px;
-    margin-left: -725px;*/
-
     margin-top: 50px;
     margin-left: 100px;
-
-    /*top: 600px; /* Adjust top position as needed */
-    /*left: 50px; /* Adjust left position as needed */
   }
 
 .checkmarkone{
     z-index: 10;
     position: absolute;
-    /*bottom: -490px;
-    right: 1125px;*/
-
-    
-    /*margin-top: -220px; /*more negative means up*/ 
-    /*margin-left: 70px; /*do not change*/
-    
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
 
-    /*top: 64.75em;
-    left: 2.75em;*/
     margin-top: -65px;    /* Move the box down by 20px */
     margin-left: 26px;   /* Move the box right by 50px */
 }
   
 .teamsChecklist .two{ 
-    /*margin-top: -150px;
-    margin-left: -800px;*/
-
     margin-top: 55px;
     margin-left: 100px;
   }
@@ -182,14 +155,9 @@ body {
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
-
-    /*top: 71em;
-    left: 2.75em;*/
 }
 
 .teamsChecklist .three{ 
-    /*margin-top: -350px;
-    margin-left: 100px; /*less negative means right*/
     padding: 10px; /* Optional: for internal spacing */
     text-align: center; /* Center text horizontally */
     margin-top: -160px;
@@ -200,22 +168,14 @@ body {
 .checkmarkthree{
     z-index: 10;
     position: absolute;
-    /*margin-top: -220px; /*more negative means up*/ 
-    /*margin-left: 450px; /*do not change*/
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
-
-    /*top: 64.75em;
-    left: 26.5em;*/
-
     margin-top: -165px;
     margin-left: 405px;
 }
 
 .teamsChecklist .four{ 
-    /*margin-top: -150px;
-    margin-left: 100px; /*less negative means right*/
     padding: 10px; /* Optional: for internal spacing */
     text-align: center; /* Center text horizontally */
     margin-top: -57px;
@@ -225,14 +185,9 @@ body {
 .checkmarkfour{
     z-index: 10;
     position: absolute;
-    /*margin-top: -120px; /*more negative means up*/ 
-    /*margin-left: 450px; /*do not change*/
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
-    
-    /*top: 71em;
-    left: 26.5em;*/
 
     margin-top:-70px;
     margin-left:405px;
@@ -240,8 +195,6 @@ body {
 
 
 .teamsChecklist .five{ 
-    /*margin-top: -350px;
-    margin-left: 100px; /*less negative means right*/
 
     padding: 10px; /* Optional: for internal spacing */
     text-align: center; /* Center text horizontally */
@@ -252,24 +205,15 @@ body {
 .checkmarkfive{
     z-index: 10;
     position: absolute;
-    /*margin-top: -220px; /*more negative means up*/ 
-    /*margin-left: 450px; /*do not change*/
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
-    
-    /*top: 64.75em;
-    left: 52.5em;*/
 
     margin-top: -175px;
     margin-left: 820px;
 }
 
 .teamsChecklist .six{ 
-    /*margin-top: -150px;
-    margin-left: 100px; /*less negative means right*/
-
-    
     padding: 10px; /* Optional: for internal spacing */
     text-align: center; /* Center text horizontally */
     margin-top: -70px;
@@ -279,15 +223,10 @@ body {
 .checkmarksix{
     z-index: 10;
     position: absolute;
-    /*margin-top: -120px; /*more negative means up*/ 
-    /*margin-left: 450px; /*do not change*/
     height: calc(90vh - 128px);
     max-width: 10%;
     max-height: 10%;
     
-    /*top: 71em;
-    left: 52.5em;*/
-
     margin-top: -90px;
     margin-left: 820px;
 }
@@ -339,6 +278,14 @@ body {
     z-index: -10;
 }
 
+.splash2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: calc(100vh - 128px);
+    z-index: -10;
+    transform: scaleY(-1);
+}
 .phone {
     position: absolute;
     bottom: 48px;

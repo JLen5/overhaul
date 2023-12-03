@@ -9,6 +9,50 @@ const system = new System();
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
+let chosenLanguage = 'English'
+const apiKey = '68c909dd-98ea-ec99-111c-cc629bb0a10f:fx';
+const apiUrl = 'https://api-free.deepl.com/v2/translate';
+const spokenLanguages = {'Deutsch': 'de-DE', 'English': 'en-US', 'Español': 'es-ES', 'Français': 'fr-FR', 'Bahasa Indonesia': 'id-ID', 'Italiano': 'it-IT', '日本語': 'ja-JP', '한국의': 'ko-KR', 'Polski': 'pl-PL', 'Português': 'pt-BR', 'Pусский': 'ru-RU', '普通话': 'zh-CN', '粤語': 'zh-HK'}
+const deeplLLanguages = {'Deutsch': 'NL',    'English': 'EN',    'Español': 'ES',    'Français': 'FR',    'Bahasa Indonesia': 'ID',    'Italiano': 'IT',    '日本語': 'JA',    '한국의': 'KO',    'Polski': 'PL',    'Português': 'PT',    'Pусский': 'RU',    '普通话': 'ZH',    '粤語': 'ZH'}
+// [0] = translator   [1] = spoken
+const languageDropdown = document.querySelectorAll('.dropdown-content')
+
+for (let language in spokenLanguages) {
+    let elm = document.createElement('span')
+    elm.classList.add('dropdown-option')
+    elm.innerHTML = language
+    elm.addEventListener('click', async (event) => {
+        let textArea = document.querySelector('.notes textarea')
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `auth_key=${apiKey}&text=${encodeURIComponent(textArea.value)}&target_lang=${deeplLLanguages[event.target.innerHTML]}`,
+        });
+        const data = await response.json();
+        if (response.ok) {
+            textArea.value += '\n' + data.translations[0].text
+        } else {
+            console.error('Error:', data.message);
+        }
+        
+    })
+    languageDropdown[0].appendChild(elm)
+
+    let elm2 = document.createElement('span')
+    elm2.classList.add('dropdown-option')
+    elm2.innerHTML = language
+    elm2.addEventListener('click', (event) => {
+        chosenLanguage = event.target.innerHTML
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = document.querySelector('.notes textarea').value;
+        // msg.text = window.getSelection().toString()
+        msg.lang = spokenLanguages[chosenLanguage]
+        window.speechSynthesis.speak(msg);
+    })
+    languageDropdown[1].appendChild(elm2)
+}
 
 let audioRecorder;
 let recordedChunks = [];
@@ -92,17 +136,6 @@ const note = document.querySelector('.notes textarea');
 note.addEventListener('keydown', (event) => {
     saveFile();
 })
-
-// tts event listener
-const mic = document.querySelector('.speaker-btn')
-mic.addEventListener('click', (event) => {
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = document.querySelector('.notes textarea').value;
-    // msg.text = window.getSelection().toString()
-    msg.lang = 'en-US'
-    window.speechSynthesis.speak(msg);
-})
-
 
 let drawing = false;
 
