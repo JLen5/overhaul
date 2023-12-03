@@ -16,6 +16,10 @@ let recordedChunks = [];
 
 // const system = new System()
 
+document.querySelector('.logout-btn').addEventListener('click', () => {
+    system.signOut()
+})
+
 document.getElementById('startRecord').addEventListener('click', startRecording);
 document.getElementById('stopRecord').addEventListener('click', stopRecording);
 document.getElementById('saveRecord').addEventListener('click', saveRecording);
