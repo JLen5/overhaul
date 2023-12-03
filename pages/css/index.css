@@ -308,16 +308,27 @@ body {
     text-align: center;
 }
 
+.signup:hover {
+    opacity: 80%;
+}
+
 .signup {
     background-color: var(--btn-primary-dark);
     color: white;
     border: none;
+    transition: opacity 0.3s;
+}
+
+.signin:hover {
+    opacity: 80%;
 }
 
 .signin {
     background-color: var(--btn-secondary);
     color: black;
     border: 2px solid black;
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
 
 .splash {

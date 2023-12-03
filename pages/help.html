@@ -1,18 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Voice Recorder</title>
-</head>
-<body>
-  <button id="startRecord">Start Recording</button>
-  <button id="stopRecord" disabled>Stop Recording</button>
-  <button id="saveRecord" disabled>Save Recording</button>
-  <div id="recordedAudio"></div>
-  <p>Recording status: <span id="status">Idle</span></p>
-  <audio controls id="audioPlayback"></audio>
 
-  <script src="recorder/recorder.js"></script>
-  <script type = "module" src="js/help.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InkLink</title>
+    <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="assets/link.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="navbar">
+        <div class="pages">
+          <a href="index.html">
+            <img src="assets/logo.png" alt="logo">
+          </a>
+          <a href="pricing.html">Pricing</a>
+          <a href="teams.html">For Teams</a>
+          <a href="individuals.html">For Individuals</a>
+          <a href="mission.html">Mission</a>
+        </div>
+        <div class="general">
+          <a href="help.html">Help</a>
+          <a href="download.html" class="btn">Download</a>
+        </div>
+      </div>
+    <div class="main">
+      <span class="header">Frequently Asked Questions</span>
+      <span class="dldescription"></span>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">> What is InkLink?</div>
+        <div class="faq-answer">
+          INKLINK is an innovative note-taking app designed to enhance accessibility for various user groups, including English language learners and individuals with disabilities. It offers unique features catering to diverse needs in note-taking.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">> What sets INKLINK apart from other note-taking apps?</div>
+        <div class="faq-answer">INKLINK distinguishes itself by prioritizing accessibility and user-friendliness. Its features include speech-to-text functions, screen readers, language translations, text-to-speech capabilities, and captioning, making it a versatile tool for a wide range of users.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">> Who is INKLINK designed for?</div>
+        <div class="faq-answer">INKLINK primarily serves two main groups: students with language barriers and those who struggle with traditional note-taking due to disabilities. However, its inclusive design welcomes other potential user demographics that align with the app's core values of accessibility.</div>
+      </div>
+    </div>
+    <span class="header">Contact Us!</span>
+
+    <div>
+        <div class="button-container">
+          <a href="https://www.instagram.com/westerndevsociety/" target="_blank">
+            <img src="assets/instagram.png" class="instagram-btn">
+          </a>
+          <a href="https://www.linkedin.com/feed/" target="_blank">
+            <img src="assets/in.png" class="instagram-btn">
+          </a>
+          <a href="https://www.facebook.com/" target="_blank">
+            <img src="assets/facebook.png" class="instagram-btn" >
+          </a>
+        </div>
+      </div>
+
+      <span class="dldescription">Or call us at (519) 661-2111</span>
+
+    <script src="help.js"></script>
+
+<script src="help.js"></script>
+  </body>
+  <script src="./js/help.js"></script>
 </html>
+
