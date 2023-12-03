@@ -9,3 +9,12 @@ document.querySelector('.signin').addEventListener('click', (event) => {
         window.location = 'login.html'
     }
 })
+
+document.querySelector('.signup').addEventListener('click', (event) => {
+    console.log(system.uid)
+    if (system.uid) {
+        window.location = 'notes.html'
+    } else {
+        window.location = 'register.html'
+    }
+})
