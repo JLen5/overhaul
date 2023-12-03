@@ -22,9 +22,8 @@ registerButton.addEventListener('click', () => {
             document.querySelector('.invalid-confirm-password').innerHTML = 'Passwords do not match!'
             return;
             
-        } 
+        }
         system.register(email.value, password.value, username.value);
-        // window.location.assign('login.html');
     }catch(error){
         console.log(error);
     }

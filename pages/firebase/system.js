@@ -106,6 +106,7 @@ class System {
                     }
                 ]
             })
+            window.location.assign('notes.html');
         })
         .catch((error) => {
             let errorCode = error.code;
