@@ -156,8 +156,10 @@ body {
     max-width: 10%;
     max-height: 10%;
 
-    top: 64.75em;
-    left: 2.75em;
+    /*top: 64.75em;
+    left: 2.75em;*/
+    margin-top: -65px;    /* Move the box down by 20px */
+    margin-left: 26px;   /* Move the box right by 50px */
 }
   
 .teamsChecklist .two{ 
@@ -169,8 +171,8 @@ body {
   }
 
 .checkmarktwo{
-    /*margin-top: -120px; /*more negative means up*/
-    /*margin-left: 70px; /*do not change*/
+    margin-top: -65px; /*more negative means up*/
+    margin-left: 26px; /*do not change*/
 
     z-index: 10;
     position: absolute;
@@ -178,8 +180,8 @@ body {
     max-width: 10%;
     max-height: 10%;
 
-    top: 71em;
-    left: 2.75em;
+    /*top: 71em;
+    left: 2.75em;*/
 }
 
 .teamsChecklist .three{ 
@@ -201,8 +203,11 @@ body {
     max-width: 10%;
     max-height: 10%;
 
-    top: 64.75em;
-    left: 26.5em;
+    /*top: 64.75em;
+    left: 26.5em;*/
+
+    margin-top: -165px;
+    margin-left: 405px;
 }
 
 .teamsChecklist .four{ 
@@ -223,8 +228,11 @@ body {
     max-width: 10%;
     max-height: 10%;
     
-    top: 71em;
-    left: 26.5em;
+    /*top: 71em;
+    left: 26.5em;*/
+
+    margin-top:-70px;
+    margin-left:405px;
 }
 
 
@@ -247,8 +255,11 @@ body {
     max-width: 10%;
     max-height: 10%;
     
-    top: 64.75em;
-    left: 52.5em;
+    /*top: 64.75em;
+    left: 52.5em;*/
+
+    margin-top: -175px;
+    margin-left: 820px;
 }
 
 .teamsChecklist .six{ 
@@ -271,8 +282,11 @@ body {
     max-width: 10%;
     max-height: 10%;
     
-    top: 71em;
-    left: 52.5em;
+    /*top: 71em;
+    left: 52.5em;*/
+
+    margin-top: -90px;
+    margin-left: 820px;
 }
 
 
