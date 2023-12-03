@@ -75,6 +75,7 @@ class System {
         await signInWithEmailAndPassword(this.auth, email, password)
         .then ((userCredential) => {
             let user = userCredential.user;
+            window.location = 'notes.html';
         })
         
         .catch((error) => {
@@ -137,6 +138,7 @@ class System {
     async signOut(){
         await signOut(this.auth).then(() => {
             console.log('signed out')
+            window.location = 'index.html'
             // remove user data
         }).catch((error) => {
             console.log(error)
